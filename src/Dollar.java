@@ -7,9 +7,9 @@ public class Dollar extends Money {
 		currency = currency;*/
 		super(amount, currency);
 	}
-	String currency() {
+	/*String currency() {
 		return currency;
-	}
+	}*/
 	
 	/*Dollar times(int multiplier) {
 		return new Dollar(amount * multiplier);
@@ -20,7 +20,7 @@ public class Dollar extends Money {
 		return this.amount == dollar.amount;
 	}*/
 	
-	Money times(int multiplier) {
-		return new Dollar(amount * multiplier,null);
-	}
+	/*Money times(int multiplier) {
+		return new Money(amount * multiplier,currency);
+	}*/
 }

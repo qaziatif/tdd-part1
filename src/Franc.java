@@ -7,11 +7,11 @@ public class Franc extends Money{
 	/*Franc times(int multiplier) {
 		return new Franc(amount * multiplier);
 	}*/
-	Money times(int multiplier) {
-		return new Franc(amount * multiplier,null);
-	}
+	/*Money times(int multiplier) {
+		return new Money(amount * multiplier,currency);
+	}*/
 		
-	String currency() {
+	/*String currency() {
 		return currency;
-	}
+	}*/
 }
