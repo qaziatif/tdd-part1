@@ -2,21 +2,17 @@
 public class Money implements Expression{
 	protected int amount;
 	protected String currency;
-	//abstract Money times(int multiplier);
 	
-	/*static Dollar dollar(int amount) {
-		return new Dollar(amount);
-	}*/
 	static Money dollar(int amount) {
 		return new Money(amount,"USD");
 	}
 	static Money franc(int amount) {
 		return new Money(amount,"CHF");
 	}
-	/*Money times(int multiplier) {
+	/*Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}*/
-	Expression times(int multiplier) {
+	public Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
 	Money(int amount, String currency) {
@@ -36,30 +32,12 @@ public class Money implements Expression{
 	public String toString() {
 		return amount + " " + currency;
 	}
-	/*Money plus(Money addend) {
-		return new Money(amount + addend.amount, currency);
-	}*/
-	
-	/*Expression plus(Money addend) {
-		//return new Money(amount + addend.amount, currency);
-		return new Sum(this, addend);
-	}*/
-	/*Expression plus(Expression addend) {
-		return new Sum(this, addend);
-	}*/
 	public Expression plus(Expression addend) {
 		return new Sum(this, addend);
 	}
-	/*public Money reduce(String to) {
-		return this;
-	}*/
-	/*public Money reduce(String to) {
-		int rate = (currency.equals("CHF") && to.equals("USD"))
-		? 2	: 1;
-		return new Money(amount / rate, to);
-	}*/
 	public Money reduce(Bank bank, String to) {
 		int rate = bank.rate(currency, to);
 		return new Money(amount / rate, to);
 	}
+	
 }
